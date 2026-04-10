@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>my profile</title>
+<title>profile site</title>
 
 <style>
 * {
@@ -25,58 +25,51 @@ video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.35;
     z-index: -1;
-    opacity: 0.4;
 }
 
-/* center card */
+/* main card */
 .card {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(0,0,0,0.7);
-    padding: 25px;
+    padding: 20px;
     border-radius: 15px;
-    width: 350px;
+    width: 380px;
     text-align: center;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* profile pic */
-img.profile {
-    width: 100px;
-    height: 100px;
+img {
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     border: 2px solid white;
     margin-bottom: 10px;
 }
 
-/* name */
 h1 {
     font-size: 24px;
-    margin-bottom: 5px;
 }
 
 p {
     opacity: 0.8;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-/* buttons */
+/* button */
 button {
     background: rgba(255,255,255,0.1);
-    color: white;
     border: 1px solid rgba(255,255,255,0.3);
+    color: white;
     padding: 8px 12px;
     border-radius: 10px;
     cursor: pointer;
     margin: 5px;
-}
-
-button:hover {
-    background: rgba(255,255,255,0.2);
 }
 
 /* skills */
@@ -91,7 +84,6 @@ button:hover {
     background: rgba(255,255,255,0.2);
     border-radius: 10px;
     margin-bottom: 8px;
-    overflow: hidden;
 }
 
 .fill {
@@ -99,35 +91,61 @@ button:hover {
     background: white;
 }
 
-.socials a {
-    color: white;
-    text-decoration: none;
-    margin: 5px;
-    display: inline-block;
-    opacity: 0.8;
+/* SOCIAL SCROLL SECTION */
+.scroll-box {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-.socials a:hover {
-    opacity: 1;
+.scroll-track {
+    display: inline-block;
+    animation: scroll 12s linear infinite;
+}
+
+.person {
+    display: inline-block;
+    margin-right: 60px;
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+.person b {
+    color: white;
+}
+
+.person span {
+    display: block;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* animation */
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- background video (replace file if you want) -->
+<!-- background -->
 <video autoplay loop muted>
     <source src="background.mp4" type="video/mp4">
 </video>
 
+<!-- main card -->
 <div class="card">
+    <img src="profile.png">
+    <h1>My Profile</h1>
+    <p>cool website</p>
 
-    <img class="profile" src="profile.png">
-
-    <h1>your name</h1>
-    <p>about you goes here</p>
-
-    <button onclick="toggleSkills()">Skills</button>
+    <button onclick="toggle()">Skills</button>
 
     <div class="skills" id="skills">
 
@@ -141,17 +159,37 @@ button:hover {
         <div class="bar"><div class="fill" style="width:60%"></div></div>
 
     </div>
+</div>
 
-    <div class="socials">
-        <a href="#">Discord</a>
-        <a href="#">GitHub</a>
-        <a href="#">YouTube</a>
+<!-- SCROLLING PEOPLE -->
+<div class="scroll-box">
+    <div class="scroll-track">
+
+        <div class="person">
+            <b>Zilo</b>
+            <span>the best discord moderation for moderating servers</span>
+        </div>
+
+        <div class="person">
+            <b>Rome</b>
+            <span>comp gorilla tag player and is a cool dude</span>
+        </div>
+
+        <div class="person">
+            <b>Horizon</b>
+            <span>the best teen gorilla tag player</span>
+        </div>
+
+        <div class="person">
+            <b>Jetto</b>
+            <span>the best upcoming gorilla tag streamer</span>
+        </div>
+
     </div>
-
 </div>
 
 <script>
-function toggleSkills() {
+function toggle() {
     const s = document.getElementById("skills");
     s.style.display = (s.style.display === "block") ? "none" : "block";
 }
