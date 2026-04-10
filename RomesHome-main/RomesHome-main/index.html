@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RomesHome.dev</title>
+
+    <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: monospace;
+                }
+
+                body {
+                    background: black;
+                    color: white;
+                    overflow: hidden;
+                }
+
+                /* BACKGROUND */
+                video {
+                    position: fixed;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    z-index: -1;
+                    opacity: 0.35;
+                }
+
+                /* CARD */
+                .card {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(10,10,10,0.75);
+                    padding: 25px;
+                    border-radius: 18px;
+                    width: 380px;
+                    text-align: center;
+                    border: 1px solid rgba(255,255,255,0.15);
+                    backdrop-filter: blur(12px);
+                }
+
+                .profile {
+                    width: 95px;
+                    height: 95px;
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    margin-bottom: 10px;
+                }
+
+                /* BUTTON */
+                button {
+                    background: rgba(255,255,255,0.08);
+                    border: 1px solid rgba(255,255,255,0.25);
+                    color: white;
+                    padding: 10px 14px;
+                    border-radius: 12px;
+                    cursor: pointer;
+                    margin-top: 8px;
+                    transition: 0.2s;
+                }
+
+                    button:hover {
+                        transform: scale(1.05);
+                    }
+
+                /* SKILLS */
+                .skills {
+                    display: none;
+                    margin-top: 10px;
+                    text-align: left;
+                    font-size: 14px;
+                    line-height: 1.6;
+                    background: rgba(255,255,255,0.05);
+                    padding: 10px;
+                    border-radius: 10px;
+                }
+
+                /* =========================
+           🔥 FIXED SCROLL SYSTEM
+        ========================= */
+
+                .scroll {
+                    position: fixed;
+                    bottom: 15px;
+                    width: 100%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+
+                .track {
+                    display: flex;
+                    width: max-content;
+                    animation: scroll 25s linear infinite;
+                }
+
+                /* each item */
+                .person {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    margin-right: 90px;
+                    padding: 10px 14px;
+                    background: rgba(0,0,0,0.7);
+                    border: 1px solid rgba(255,255,255,0.15);
+                    border-radius: 12px;
+                    white-space: nowrap;
+                }
+
+                /* verified badge */
+                .badge {
+                    width: 14px;
+                    height: 14px;
+                }
+
+                /* smooth infinite scroll (NO GAP FEEL) */
+                @keyframes scroll {
+                    0% {
+                        transform: translateX(0%);
+                    }
+
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+    </style>
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <video autoplay loop muted>
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <!-- CARD -->
+    <div class="card">
+
+        <img class="profile" src="profile.png">
+
+        <h1>Romes Home</h1>
+        <p>cool profile website</p>
+
+        <button onclick="toggleSkills()">Skills</button>
+
+        <div class="skills" id="skills">
+            Rome skilled gamer<br>
+            Zilo skilled moderation for discord<br>
+            Horizon the best teen gorilla tag player<br>
+            Jetto the best youtube gorilla tag live streamer
+        </div>
+
+    </div>
+
+    <!-- SCROLL -->
+    <div class="scroll">
+        <div class="track">
+
+            <!-- LIST 1 -->
+            <div class="person">
+                <b>Zilo</b>
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg">
+                <span>discord moderation expert</span>
+            </div>
+
+            <div class="person">
+                <b>Rome</b>
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg">
+                <span>skilled gamer</span>
+            </div>
+
+            <div class="person">
+                <b>Horizon</b>
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg">
+                <span>top teen gorilla tag player</span>
+            </div>
+
+            <div class="person">
+                <b>Jetto</b>
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg">
+                <span>youtube gorilla tag live streamer</span>
+            </div>
+
+            <div class="person">
+                <b>iidk</b>
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg">
+                <span>creator & developer</span>
+            </div>
+
+            <div class="person">
+                <b>Pepsi dee</b>
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg">
+                <span>cool community member</span>
+            </div>
+
+            <div class="person">
+                <b>TTTPIG</b>
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg">
+                <span>gorilla tag player</span>
+            </div>
+
+            <div class="person">
+                <b>Menkerr</b>
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg">
+                <span>upcoming creator</span>
+            </div>
+
+            <!-- 🔁 DUPLICATE LIST FOR SMOOTH LOOP (IMPORTANT) -->
+            <div class="person">
+                <b>Zilo</b><img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg"><span>discord moderation expert</span>
+            </div>
+
+            <div class="person">
+                <b>Rome</b><img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg"><span>skilled gamer</span>
+            </div>
+
+            <div class="person">
+                <b>Horizon</b><img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg"><span>top teen gorilla tag player</span>
+            </div>
+
+            <div class="person">
+                <b>Jetto</b><img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg"><span>youtube gorilla tag live streamer</span>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleSkills() {
+            const s = document.getElementById("skills");
+            s.style.display = (s.style.display === "block") ? "none" : "block";
+        }
+    </script>
+
+</body>
+</html>
